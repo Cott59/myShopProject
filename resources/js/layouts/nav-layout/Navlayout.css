@@ -1,0 +1,12 @@
+.navbar{
+    display: flex;
+    gap:70px;
+}
+.menuItem{
+    color: rgb(252, 252, 252);
+    font-size: 30px;
+    cursor: pointer;
+}
+.menuItem:hover{
+    color: brown;
+}

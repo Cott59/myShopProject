@@ -1,0 +1,27 @@
+.bgr{
+  background-color: rgba(179, 216, 204, 0.377);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backdrop-filter: blur(5px);
+  top:17%;
+  left: 15%;
+  width: 500px;
+  height: 300px;  
+  border-radius: 15px;
+
+
+  color:antiquewhite;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  font-size: 45px;
+  font-family:'Times New Roman', Times, serif; 
+  padding-left:  60px;
+  box-sizing: border-box;
+}
+.onestr{
+  font-size: 65px;
+  font-weight: bold;
+}

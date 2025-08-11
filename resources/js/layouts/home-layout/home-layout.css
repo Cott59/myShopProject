@@ -1,0 +1,14 @@
+.backgraund{
+  width: 100%;
+  height: 790px;
+  filter: opacity(70%);
+  display: flex;
+  
+}
+
+img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+
+}
