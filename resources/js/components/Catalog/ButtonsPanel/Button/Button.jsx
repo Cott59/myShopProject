@@ -2,32 +2,29 @@ import React from 'react';
 import { useRef } from 'react';
 import "./Button.css";
 
+export default function Button({name, isActive, activBtn}){
 
-export default function Button({isActive, name='кнопка'}){
-    
-  return (
-    <div>
-        {
-            isActive ?
-            (
-                <div className='button active'>
-                    <span>{name}</span>
-                </div>
-            )
-            :
-            (
-                <div className='button'>
-                     <span>{name}</span>
-               </div>
-            )
+    const thisname = name;
 
-
+    function active(){
+        if(activBtn==thisname){
+            return true;
         }
-    </div>
+       
+    }
 
-    
-    
-  )
+    function onClickBtn(e){
+        isActive(e.target.textContent)
+    }
+
+    return (
+        <div>
+            <div className={active() ? 'button active' : 'button' } onClick = {(e) => onClickBtn(e)} >
+                {name}
+            </div>
+        </div>
+      )
+
+
 }
 
- 

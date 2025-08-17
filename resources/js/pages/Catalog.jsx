@@ -1,6 +1,7 @@
 import React from 'react'
-import "./Catalog.css"
-import ButtonsPanel from "./ButtonsPanel/ButtonsPanel"
+import "./../components/Catalog/Catalog.css"
+import ButtonsPanel from "./../components/Catalog/ButtonsPanel/ButtonsPanel"
+
 
 const Catalog = () => {
   return (
