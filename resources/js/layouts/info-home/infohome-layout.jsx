@@ -4,8 +4,8 @@ import "./infohome-layout.css"
 
 const infohomelayout = () => {
   return (
-    <div class="bgr">
-        <span class="onestr">Детали-</span>
+    <div className="bgr">
+        <span className="onestr">Детали-</span>
         <span>Твоего интерьера</span>
     </div>
   )

@@ -10,9 +10,7 @@ export default defineConfig({
             input: ['resources/css/app.css', 'resources/js/app.tsx'],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,
-        }),
-        react(),
-        tailwindcss(),
+        })
     ],
     esbuild: {
         jsx: 'automatic',
