@@ -1,0 +1,12 @@
+.catalog-item{
+    width: 350px;
+    height: 500px;
+    background-color: rgb(191, 197, 133);
+    box-sizing: border-box;
+    border-radius: 30px;
+    border: 2px solid brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}

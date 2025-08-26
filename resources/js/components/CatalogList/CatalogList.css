@@ -1,0 +1,30 @@
+.catalogList{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    box-sizing: border-box;
+}
+
+.catalog-items-plane{
+    width: 100%;
+    height: 670px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    box-sizing: border-box;
+}
+
+.catalog-pagination-plane{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    gap: 50px;
+    
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
