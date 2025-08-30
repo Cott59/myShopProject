@@ -3,16 +3,16 @@ import Button from "../Catalog/ButtonsPanel/Button/Button"
 import React from 'react'
 import CatalogItem from "./../CatalogItem/CatalogItem"
 
-export default function CatalogList ({list}) {
+export default function CatalogList ({dataList}) {
+
+  console.log(dataList)
 
   return (
+
+    
     <div className="catalogList">
         <div className="catalog-items-plane">
-            <CatalogItem />
-            <CatalogItem />
-            <CatalogItem />
-            <CatalogItem />
-
+            {dataList.map((el)=><CatalogItem dataItem={el} />)}
         </div>
         <div className="catalog-pagination-plane">
             <Button name='назад'/>

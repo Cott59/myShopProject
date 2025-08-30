@@ -1,12 +1,20 @@
 import React from 'react'
 import "./CatalogItem.css"
 
-const CatalogItem = () => {
+export default function CatalogItem({dataItem}){
+  
   return (
     <div className='catalog-item'>
-        <span>CatalogItem</span>
+        <div className="prodItem_img wrap">
+            <img src={dataItem.url} alt="r" />           
+        </div>
+        <div className="prodItem-data">
+            <span>Лампа:{dataItem.name}</span>
+            <span>Артикул: {dataItem.articul}</span>
+            <span>Размер: {dataItem.height}</span>
+
+        </div>
     </div>
   )
 }
 
-export default CatalogItem
