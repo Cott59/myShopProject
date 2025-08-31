@@ -2,6 +2,7 @@ import "./CatalogList.css"
 import Button from "../Catalog/ButtonsPanel/Button/Button"
 import React from 'react'
 import CatalogItem from "./../CatalogItem/CatalogItem"
+import Paginationlayout from "../../layouts/PaginationLayout/Paginationlayout"
 
 export default function CatalogList ({dataList}) {
 
@@ -15,9 +16,10 @@ export default function CatalogList ({dataList}) {
             {dataList.map((el)=><CatalogItem dataItem={el} />)}
         </div>
         <div className="catalog-pagination-plane">
-            <Button name='назад'/>
-            1 2 3
-            <Button name='вперёд'/>
+            <Paginationlayout/>
+            {/* <Button name='назад'/>
+            . 2 3 4 .
+            <Button name='вперёд'/> */}
         </div>
 
 

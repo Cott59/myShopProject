@@ -1,0 +1,18 @@
+.Pagination-layout{
+    display: flex;
+    gap:30px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+.btn{
+    width: 100px;
+    height: 40px;
+}
+.counter{
+    font-size: 20px;
+}
+
+.counter .curPege{
+    font-size: 25px;
+}

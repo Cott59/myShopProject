@@ -16,10 +16,6 @@ class ProductController extends Controller
     public function allProduct(): JsonResponse
     {
         $products = DB::table('products')->get();
-        //$products =  Product::all('name') ;
-            
-        
-
          return response()->json(['products'=>$products]) ;
     }
 
