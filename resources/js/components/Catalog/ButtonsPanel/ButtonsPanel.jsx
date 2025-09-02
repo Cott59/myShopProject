@@ -5,19 +5,20 @@ import "./ButtonsPanel.css";
 const nameButtons=["Новинки","Лампы", "Панно"];
 
 
-export default function ButtonsPanel({setData}){
+export default function ButtonsPanel({setData,setMetaData}){
     
     const [activBtn, setActiveBtn] = useState("Новинки");
     
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('https://shop.loc/api/products')
+            const response = await fetch("https://shop.loc/api/products?page=1")
                 .then((response)=>{
                     return response.json();
                 })
                 .then((data)=>{
-                    setData(data.products);
+                    setData(data.products.data);
+                    setMetaData(data.products.links);
                 })
             // const jsonData = await response.json();
             // //console.log(jsonData)

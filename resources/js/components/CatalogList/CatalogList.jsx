@@ -4,7 +4,7 @@ import React from 'react'
 import CatalogItem from "./../CatalogItem/CatalogItem"
 import Paginationlayout from "../../layouts/PaginationLayout/Paginationlayout"
 
-export default function CatalogList ({dataList}) {
+export default function CatalogList ({dataList, linkPages}) {
 
   console.log(dataList)
 
@@ -16,7 +16,7 @@ export default function CatalogList ({dataList}) {
             {dataList.map((el)=><CatalogItem dataItem={el} />)}
         </div>
         <div className="catalog-pagination-plane">
-            <Paginationlayout/>
+            <Paginationlayout linkPages ={linkPages}/>
             {/* <Button name='назад'/>
             . 2 3 4 .
             <Button name='вперёд'/> */}

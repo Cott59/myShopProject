@@ -10,8 +10,9 @@ export default function CatalogItem({dataItem}){
         </div>
         <div className="prodItem-data">
             <span>Лампа:{dataItem.name}</span>
-            <span>Артикул: {dataItem.articul}</span>
+            <span>Цена: {dataItem.price} р</span>
             <span>Размер: {dataItem.height}</span>
+
 
         </div>
     </div>

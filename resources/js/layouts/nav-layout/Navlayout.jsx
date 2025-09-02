@@ -25,7 +25,7 @@ const Navlayout = () => {
             <div>Каталог</div>
           </div>
           <div className="menuItem" >            
-            <NavButton name= 'Контакты' path='catalog' logo={<RiContactsBookLine />}/>
+            <NavButton name= 'Контакты' path='product' logo={<RiContactsBookLine />}/>
           </div>
           
       </div>

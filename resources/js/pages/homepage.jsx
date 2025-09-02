@@ -4,30 +4,25 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Homelayout from "../layouts/home-layout/home-layout";
 import Catalog from "./Catalog";
-import { useState } from 'react';
+import ProductItem from "./ProductItem"
 
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function homepage () {
-  // const [content, setContent] = useState(Catalog);
-
-
   
   return (
     
       <div className='homepage'>
         <Header />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/catalog" element={<Catalog />} />
-            <Route path="*" element={<Homelayout />} />
-          </Routes>
-        </BrowserRouter>
-
-          {/* <div className="container">   
-            {content}
-          </div> */}
-      
+        <div className="container">
+          <BrowserRouter>
+            <Routes>
+              <Route path="/catalog" element={<Catalog />} />
+              <Route path="*" element={<Homelayout />} />
+              <Route path="/product" element={<ProductItem />} />
+            </Routes>
+          </BrowserRouter>          
+        </div>        
         <Footer />
       </div>
     
