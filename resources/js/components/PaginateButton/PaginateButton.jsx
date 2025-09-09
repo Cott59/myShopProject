@@ -1,18 +1,15 @@
 import "./PaginateButton.css"
 
-export default function PaginateButton({page, name,action,setCurrentPaga}){
+export default function PaginateButton({page,nonActive,i, name,action}){
 
- const gg = action;   
-function actionBtn(){
-    action(page);
     
-   
+function handleClick(){
+    action(page+i);    
 }
-let active = false;
 
 
 return (
-    <div className={active ? "Paginate-Button active": "Paginate-Button"} onClick={()=>{actionBtn()}} >
+    <div className={nonActive ? "Paginate-Button ": "Paginate-Button nonActive " } onClick={()=>{ nonActive ? handleClick(): null}} >
         <span>{name}</span>
     </div>
 

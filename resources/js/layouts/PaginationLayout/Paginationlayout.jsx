@@ -5,40 +5,28 @@ import "./Paginationlayout.css"
 
 import { Label } from '@headlessui/react';
 
-const Paginationlayout = ({linkPages}) => {
+const Paginationlayout = ({countPages,setNumCurrentPaga}) => {
 
-    const [currentPaga, setCurrentPaga] = useState("1")
-    const [incrCurrentPage,setIncrCurrentPage] =useState("")
-    const [decrCurrentPage,setDecrCurrentPage] =useState("")
-    const maxCounterPages =  linkPages.length-2;   
-
-    function incrPage(num){
-        setCurrentPaga(num++)
-    }
-    function decrPage(num){
-        setCurrentPaga(num--)
-    }
-    console.log(maxCounterPages)
+    const [currentPaga, setCurrentPaga] = useState(1)
+    
+    const maxCounterPages =  countPages-2;  
+    setNumCurrentPaga(currentPaga);
+    
   return (
     <div className="Pagination-layout">
         <div className="btn">
-            <PaginateButton page={currentPaga} setCurrentPaga={setCurrentPaga} name={"Назад"} action={decrPage}/>
+            {/* <PaginateButton page={currentPaga}  name={"Назад"} action={(num)=>{setCurrentPaga(currentPaga-1)}} /> */}
+            <PaginateButton page={currentPaga} nonActive={currentPaga-1>0}  i={-1} name={"Назад"} action={setCurrentPaga} />
         </div>
         
-        <div className="counter">
-            
-               
-
-
-            
-            
-            <span>{decrCurrentPage}</span>
+        <div className="counter">            
+            <span>{currentPaga-1<=0 ? "": currentPaga-1}</span>
             <span className ="curPege">{currentPaga}</span>
-            <span>{incrCurrentPage}</span>
-
+            <span>{currentPaga+1>maxCounterPages ? "": currentPaga+1 }</span>
         </div>
         <div className="btn">       
-            <PaginateButton page={currentPaga} setCurrentPaga={setCurrentPaga} name={"Далее"} action={incrPage} />
+            {/* <PaginateButton page={currentPaga}  name={"Далее"} action={(num)=>{setCurrentPaga(currentPaga+1)}} /> */}
+            <PaginateButton page={currentPaga} nonActive={currentPaga<maxCounterPages} i={1} name={"Далее"} action={setCurrentPaga} />
         </div>
 
     </div>

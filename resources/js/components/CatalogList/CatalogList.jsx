@@ -3,28 +3,68 @@ import Button from "../Catalog/ButtonsPanel/Button/Button"
 import React from 'react'
 import CatalogItem from "./../CatalogItem/CatalogItem"
 import Paginationlayout from "../../layouts/PaginationLayout/Paginationlayout"
+import { memo } from "react"
+import { useState,useEffect } from "react";
 
-export default function CatalogList ({dataList, linkPages}) {
 
-  console.log(dataList)
+function _CatalogList ({stringData}) {  //dataList, linkPages,setNumCurrentPaga
+
+  const [dataProducts, setDataProducts] = useState([]);//информация о товарах(артикул, цена, фото и т.д.)
+  const [dataLink, setDataLink] = useState([]);//ссылки на страницы при пагинации
+  //const [currentPaga,setCurrentPaga] = useState(stringData);
+  const [numCurrentPaga, setNumCurrentPaga] = useState(1)
+  
+
+  //  function ff(stringData){// ПОЛУЧАЕМ ДАННЫЕ
+  //     const response =  fetch(stringData+numCurrentPaga)
+  //       .then((response)=>{
+  //         return response.json();
+  //     })
+  //     .then((data)=>{
+  //       setDataProducts(data.products.data);
+  //       setDataLink(data.products.links);
+  //     });
+  //  }
+
+  //   // ff(stringData);
+
+      useEffect(() => {
+        const fetchData = async () => {
+          const response = await fetch(stringData+numCurrentPaga)
+              .then((response)=>{
+                  return response.json();
+              })
+              .then((data)=>{
+                  setDataProducts(data.products.data);
+                  setDataLink(data.products.links);
+              })
+        
+        };
+
+        fetchData();
+      }, []
+    );
+
 
   return (
 
     
     <div className="catalogList">
         <div className="catalog-items-plane">
-            {dataList.map((el)=><CatalogItem dataItem={el} />)}
+            {dataProducts.map((el)=><CatalogItem dataItem={el} />)}
         </div>
         <div className="catalog-pagination-plane">
-            <Paginationlayout linkPages ={linkPages}/>
-            {/* <Button name='назад'/>
-            . 2 3 4 .
-            <Button name='вперёд'/> */}
+            <Paginationlayout countPages ={dataLink.length} setNumCurrentPaga={setNumCurrentPaga}/>
+            
         </div>
 
 
     </div>
   )
 }
+
+const CatalogList = memo(_CatalogList);
+export default CatalogList;
+
 
  

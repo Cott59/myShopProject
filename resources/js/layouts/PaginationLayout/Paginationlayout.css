@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+
 }
 .btn{
     width: 100px;
@@ -11,8 +12,14 @@
 }
 .counter{
     font-size: 20px;
+    display: flex;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .counter .curPege{
     font-size: 25px;
+    order: 0;
 }
