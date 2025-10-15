@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Button from "./Button/Button";
 import "./ButtonsPanel.css";
 
-const nameButtons=["Новинки","Лампы", "Панно"];
+const nameButtons=["Новинки","Лампы","Свечи", "Панно"];
 
 
 export default function ButtonsPanel({activBtn,setActiveBtn}){

@@ -7,30 +7,15 @@ import { memo } from "react"
 import { useState,useEffect } from "react";
 
 
-function _CatalogList ({stringData}) {  //dataList, linkPages,setNumCurrentPaga
+function _CatalogList ({stringData,setNumCurrentPaga,numCurrentPaga}) {  //dataList, linkPages,setNumCurrentPaga
 
+  
   const [dataProducts, setDataProducts] = useState([]);//информация о товарах(артикул, цена, фото и т.д.)
   const [dataLink, setDataLink] = useState([]);//ссылки на страницы при пагинации
-  //const [currentPaga,setCurrentPaga] = useState(stringData);
-  const [numCurrentPaga, setNumCurrentPaga] = useState(1)
-  
-
-  //  function ff(stringData){// ПОЛУЧАЕМ ДАННЫЕ
-  //     const response =  fetch(stringData+numCurrentPaga)
-  //       .then((response)=>{
-  //         return response.json();
-  //     })
-  //     .then((data)=>{
-  //       setDataProducts(data.products.data);
-  //       setDataLink(data.products.links);
-  //     });
-  //  }
-
-  //   // ff(stringData);
-
+  console.log(dataLink.length);
       useEffect(() => {
         const fetchData = async () => {
-          const response = await fetch(stringData+numCurrentPaga)
+          const response = await fetch(stringData)
               .then((response)=>{
                   return response.json();
               })
@@ -42,9 +27,9 @@ function _CatalogList ({stringData}) {  //dataList, linkPages,setNumCurrentPaga
         };
 
         fetchData();
-      }, []
+      }, [stringData]
     );
-
+  
 
   return (
 
@@ -54,7 +39,7 @@ function _CatalogList ({stringData}) {  //dataList, linkPages,setNumCurrentPaga
             {dataProducts.map((el)=><CatalogItem dataItem={el} />)}
         </div>
         <div className="catalog-pagination-plane">
-            <Paginationlayout countPages ={dataLink.length} setNumCurrentPaga={setNumCurrentPaga}/>
+            <Paginationlayout countPages ={dataLink.length} setNumCurrentPaga={setNumCurrentPaga} numCurrentPaga={numCurrentPaga}/>
             
         </div>
 

@@ -19,6 +19,17 @@ class ProductController extends Controller
          return response()->json(['products'=>$products]);
     }
 
+    public function getCandles(): JsonResponse
+    {
+        // $products = DB::table('products'::where('type',"Свеча")   )->paginate(3);
+        $products = Product::where('type',"Свеча")->paginate(3);
+
+         return response()->json(['products'=>$products]);
+    }
     
+    public function getProduct(): JsonResponse
+    {
+
+    }
 
 }

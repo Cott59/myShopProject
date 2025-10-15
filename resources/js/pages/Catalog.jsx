@@ -9,87 +9,76 @@ import { useMemo } from 'react';
 
 const Catalog = () => {
 
-  const [activBtn, setActiveBtn] = useState("Новинки");//активная кнопка
-  //const [dataProducts, setDataProducts] = useState([]);//информация о товарах(артикул, цена, фото и т.д.)
-  //const [dataLink, setDataLink] = useState([]);//ссылки на страницы при пагинации
-  // const [currentPaga,setCurrentPaga] = useState("https://shop.loc/api/products?page=1");
-  //const [numCurrentPaga, setNumCurrentPaga] = useState(1)
-  //console.log(numCurrentPaga);
- 
+  const [activBtn, setActiveBtn] = useState("Новинки");//активная кнопка   
+  //const [oldActivBtn, setOldActiveBtn] = useState("Новинки");//активная кнопка 
+  const [numCurrentPaga, setNumCurrentPaga] = useState(1)  
+  // let oldActivBtn = "";
   let stringData ="";
   
-function getString(){//формируем строку запроса
+  useEffect(() => {
+    //setOldActiveBtn(activBtn);
+    setNumCurrentPaga(1);
+    
+  },[activBtn]
+)
+
+
+
+ function  getString(){//формируем строку запроса
     let baseString="https://shop.loc/api/";
     if(activBtn=="Новинки")
-    {
-       let prod="products?page=";
+    { 
+      // let pag;
+      // if(activBtn==oldActivBtn){
+      //   pag= String(numCurrentPaga);
+      //   console.log(oldActivBtn);
+      //   console.log("33");
+      // }
+      // else{
+      //   pag='1';        
+      //   console.log("22");
+      //   console.log(oldActivBtn);
+      //   // oldActivBtn="Новинки";
+      //   console.log(oldActivBtn);
+      // }
+
+      let pag= String(numCurrentPaga)
       
-       baseString=baseString+prod;//+numCurrentPaga
-       stringData=baseString;
-       
+      let prod="products?page=" ;
+      
+      baseString=baseString+prod+pag;
+      stringData=baseString;
        
     }
-    
+
+    if(activBtn=="Свечи")
+    {
+      // let pag;
+      // if(activBtn==oldActivBtn){
+      //   pag= String(numCurrentPaga);
+      //   console.log(oldActivBtn);
+      //   console.log("44");
+      // }
+      // else{
+      //   pag='1';
+      //   console.log(oldActivBtn);
+      //   // oldActivBtn="Свечи";
+      //   console.log(oldActivBtn);
+      //   console.log("55");
+      // }
+      
+      let pag= String(numCurrentPaga)
+      let prod="candles?page=" ;
+      
+      baseString=baseString+prod+pag;
+      stringData=baseString;
+    }
+    console.log(stringData);
+       
     
 };
 
    getString()
-
-
-  //  ff(stringData);
-
-  //  function ff(stringData){// ПОЛУЧАЕМ ДАННЫЕ
-  //     const response =  fetch(stringData)
-  //       .then((response)=>{
-  //         return response.json();
-  //     })
-  //     .then((data)=>{
-  //       setDataProducts(data.products.data);
-  //       setDataLink(data.products.links);
-  //     });
-  //  }
-
-  
-
-
-  // function getString(numCurrentPaga){
-  //   let baseString="https://shop.loc/api/";
-  //   if(activBtn=="Новинки")
-  //   {
-  //      let prod="products?page=";
-      
-  //      baseString=baseString+prod+numCurrentPaga;
-  //      stringData=baseString;
-       
-       
-  //   }
-    
-    
-  // };
-
-  //  getString(numCurrentPaga)
-  
-  //  console.log(stringData);
-   
-
-
-    //   useEffect(() => {
-    //     const fetchData = async () => {
-    //       const response = await fetch(currentPaga)
-    //           .then((response)=>{
-    //               return response.json();
-    //           })
-    //           .then((data)=>{
-    //               setDataProducts(data.products.data);
-    //               setDataLink(data.products.links);
-    //           })
-        
-    //     };
-
-    //     fetchData();
-    //   }, []
-    // );
-  
   
   return (
     
@@ -99,7 +88,7 @@ function getString(){//формируем строку запроса
         </div>
         <div className="catalog-content">
             {/* <CatalogList dataList={dataProducts} linkPages = {dataLink} setNumCurrentPaga={setNumCurrentPaga} /> */}
-            <CatalogList stringData={stringData} /> 
+            <CatalogList stringData={stringData} setNumCurrentPaga={setNumCurrentPaga} numCurrentPaga={numCurrentPaga}/> 
         </div>
     
       </div>

@@ -12,7 +12,7 @@ function NavButton({name, path, logo}){
 
     return (
             
-        <div onClick = {() => handleClick()} >{logo} {name} </div>
+        <div onClick = {() => handleClick()} >{logo}  </div>
         
       );
 }

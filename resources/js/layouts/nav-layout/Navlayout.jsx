@@ -4,8 +4,9 @@ import { FaHouseChimney } from "react-icons/fa6";
 import { RiContactsBookLine } from "react-icons/ri";
 import { GrCatalog } from "react-icons/gr";
 import "./Navlayout.css"
-import { Link } from 'react-router-dom';
+
 import NavButton from '../../components/Navbutton/NavButton';
+
 
 const Navlayout = () => {
 
@@ -15,6 +16,7 @@ const Navlayout = () => {
 
   return (
     <div className="navbar">
+
       <div className="menu">
           <div className="menuItem" onClick = {() => handleClick('home')} >
             <FaHouseChimney />
@@ -26,14 +28,15 @@ const Navlayout = () => {
           </div>
           <div className="menuItem" >            
             <NavButton name= 'Контакты' path='product' logo={<RiContactsBookLine />}/>
-          </div>
-          
+            <div>Контакты</div>
+          </div>          
       </div>
 
-      <div className="menuItem icons">
-        <FaCartShopping />
-        <span>2</span>
+      <div className="menuItem navbar-card " onClick = {() =>handleClick('card') } >        
+          <FaCartShopping />
+          <span className="count">{localStorage.length}</span>
       </div>
+      
         
     </div>
   )

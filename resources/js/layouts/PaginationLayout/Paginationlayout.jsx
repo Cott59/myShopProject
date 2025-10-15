@@ -5,9 +5,9 @@ import "./Paginationlayout.css"
 
 import { Label } from '@headlessui/react';
 
-const Paginationlayout = ({countPages,setNumCurrentPaga}) => {
+const Paginationlayout = ({countPages,setNumCurrentPaga,numCurrentPaga}) => {
 
-    const [currentPaga, setCurrentPaga] = useState(1)
+    const [currentPaga, setCurrentPaga] = useState(numCurrentPaga)
     
     const maxCounterPages =  countPages-2;  
     setNumCurrentPaga(currentPaga);
@@ -21,7 +21,7 @@ const Paginationlayout = ({countPages,setNumCurrentPaga}) => {
         
         <div className="counter">            
             <span>{currentPaga-1<=0 ? "": currentPaga-1}</span>
-            <span className ="curPege">{currentPaga}</span>
+            <span className ="curPege">{numCurrentPaga}</span>
             <span>{currentPaga+1>maxCounterPages ? "": currentPaga+1 }</span>
         </div>
         <div className="btn">       
