@@ -11,13 +11,13 @@ const Catalog = () => {
 
   const [activBtn, setActiveBtn] = useState("Новинки");//активная кнопка   
   //const [oldActivBtn, setOldActiveBtn] = useState("Новинки");//активная кнопка 
-  const [numCurrentPaga, setNumCurrentPaga] = useState(1)  
+  const [numCurrentPage, setNumCurrentPage] = useState(1)  
   // let oldActivBtn = "";
   let stringData ="";
   
   useEffect(() => {
     //setOldActiveBtn(activBtn);
-    setNumCurrentPaga(1);
+    setNumCurrentPage(1);
     
   },[activBtn]
 )
@@ -42,7 +42,7 @@ const Catalog = () => {
       //   console.log(oldActivBtn);
       // }
 
-      let pag= String(numCurrentPaga)
+      let pag= String(numCurrentPage)
       
       let prod="products?page=" ;
       
@@ -67,7 +67,7 @@ const Catalog = () => {
       //   console.log("55");
       // }
       
-      let pag= String(numCurrentPaga)
+      let pag= String(numCurrentPage)
       let prod="candles?page=" ;
       
       baseString=baseString+prod+pag;
@@ -88,7 +88,7 @@ const Catalog = () => {
         </div>
         <div className="catalog-content">
             {/* <CatalogList dataList={dataProducts} linkPages = {dataLink} setNumCurrentPaga={setNumCurrentPaga} /> */}
-            <CatalogList stringData={stringData} setNumCurrentPaga={setNumCurrentPaga} numCurrentPaga={numCurrentPaga}/> 
+            <CatalogList stringData={stringData} setNumCurrentPage={setNumCurrentPage} numCurrentPage={numCurrentPage}/> 
         </div>
     
       </div>

@@ -7,7 +7,7 @@ import { memo } from "react"
 import { useState,useEffect } from "react";
 
 
-function _CatalogList ({stringData,setNumCurrentPaga,numCurrentPaga}) {  //dataList, linkPages,setNumCurrentPaga
+function _CatalogList ({stringData,setNumCurrentPage,numCurrentPage}) {  //dataList, linkPages,setNumCurrentPaga
 
   
   const [dataProducts, setDataProducts] = useState([]);//информация о товарах(артикул, цена, фото и т.д.)
@@ -39,7 +39,7 @@ function _CatalogList ({stringData,setNumCurrentPaga,numCurrentPaga}) {  //dataL
             {dataProducts.map((el)=><CatalogItem dataItem={el} />)}
         </div>
         <div className="catalog-pagination-plane">
-            <Paginationlayout countPages ={dataLink.length} setNumCurrentPaga={setNumCurrentPaga} numCurrentPaga={numCurrentPaga}/>
+            <Paginationlayout countPages ={dataLink.length} setNumCurrentPage={setNumCurrentPage} numCurrentPage={numCurrentPage}/>
             
         </div>
 
